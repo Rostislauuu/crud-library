@@ -1,0 +1,34 @@
+@mixin link($color, $font-weight, $txtDecor) {
+    color: $color;
+    font-weight:$font-weight;
+    text-decoration: $txtDecor;
+    @content;
+  }
+  
+  @mixin font($fontSize, $fontWeight) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+  }
+  
+  @mixin hover($background, $color, $border... ) {
+    background: $background;
+    color: $color;
+    border: $border;
+  }
+
+  @mixin input-field($bgColor,$border...){
+    background: $bgColor;
+    border: $border;
+    @content;
+  }
+
+  @mixin size($height, $width) {
+    height: $height;
+    width: $width;
+  }
+
+  @mixin button($color, $bgColor, $border...){
+    color: $color;
+    background: $bgColor;
+    border: $border;
+  }
