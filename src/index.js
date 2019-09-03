@@ -6,10 +6,8 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import App from './App';
-import About from './components/About';
 import reducer from './reducers/index';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -20,9 +18,6 @@ store.subscribe(() => {
 
 ReactDOM.render(
             <Provider store={store}>
-                <Router>
-                    <Route path="/main" component={App} />
-                    <Route path="/about" component={About} />
-                </Router>
+                <App />
             </Provider>,
      document.getElementById('root'));
