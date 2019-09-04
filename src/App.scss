@@ -11,20 +11,17 @@ $white: white;
   font-family: Georgia, sans-serif;
 }
 
-h1{
-  color: $aColor;
-  margin-left: 15px;
-  text-transform: uppercase;
-}
-
 .input-field {
   @include input-field($white, 1px solid gray);
   @include size(25px, 250px);
   @include font(15px, 700);
   border-radius: 2px;
-  margin: 5px 5px 10px 100px;
+  margin-bottom: 5px;
   color: $aColor;
 
+  &:last-child{
+    margin-bottom: 0;
+  }
   &:focus{
     outline: 0;
   }
@@ -32,12 +29,36 @@ h1{
 
 // Book Library
 
+.book-root {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  border-bottom: 2px solid lighten($bgColor, 10);
+}
+
+.add-book {
+  width: 30%;
+  max-width: 1200px;
+  height: 150px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+
+.search-root {
+  width: 40%;
+  max-width: 1200px;
+  position: relative;
+  top: 170px; 
+  left: 5px;
+}
+
 .add-button, .search-button {
   @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
   @include size(28px, null);
   @include font(13px, 700);
   border-radius: 5px;
-  margin-left: 5px;
+  margin-top: 10px;
 
   &:focus{
     outline: 0;
@@ -52,28 +73,26 @@ h1{
 }
 
 .library {
+  width: 60%;
+  position: absolute;
+  left: 25%;
+  top: 5px;
+  text-align: center;
+
     ol {
         list-style: none;
-        padding-left: 15px;
     }
 }
 
 .library-book {
   @include font(20px, normal);
-  margin-bottom: 1px;
-  margin-left: 175px;
   color: rgb(236, 66, 66);
-  width: 20%;
+  width: 25%;
   cursor: $selectCursor;
-  text-align: center;
 
   &:hover {
     @include hover($white, rgb(41, 38, 38), 1px solid white);
     transition:  background 0.5s linear, color 0.2s linear;
     border-radius: 3px;
   }
-}
-
-.books-header {
-  text-align: center;
 }

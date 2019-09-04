@@ -12,8 +12,9 @@ class SearchBook extends Component{
 
     render(){
         return(
-            <div>
+            <div className="search-root">
                 <input type="text" ref={(input) => {this.searchInput = input}} className="input-field" />
+                <br />
                 <button onClick={this.searchBook.bind(this)} className="search-button">Search Book</button>
             </div>
         )

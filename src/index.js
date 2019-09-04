@@ -13,7 +13,7 @@ import reducer from './reducers/index';
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 store.subscribe(() => {
-    console.log('Added new state', store.getState())
+    console.log('Added new state or made another action', store.getState())
 })
 
 ReactDOM.render(

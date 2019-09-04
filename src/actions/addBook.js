@@ -1,9 +1,11 @@
 const ADD_BOOK = 'ADD_BOOK';
 
-export const addBook = (name) => {
+export const addBook = (name, author, year) => {
     const payload = {
         id: Date.now().toString(),
-        name
+        name,
+        author,
+        year
     };
 
     return{
