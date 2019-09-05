@@ -8,13 +8,18 @@ class SearchBook extends Component{
     searchBook(){
         console.log('i`m searching', this.searchInput.value);
         this.props.onSearchBook(this.searchInput.value);
+
+        this.searchInput.value = '';
     }
 
     render(){
         return(
             <div className="search-root">
-                <input type="text" ref={(input) => {this.searchInput = input}} className="input-field" />
+                <input type="text" ref={(input) => {this.searchInput = input}} placeholder="Search..."
+                className="input-field" />
+
                 <br />
+
                 <button onClick={this.searchBook.bind(this)} className="search-button">Search Book</button>
             </div>
         )

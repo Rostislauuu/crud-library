@@ -25,7 +25,7 @@ class BookList extends Component{
 
 function mapStateToProps(state) {
     return{
-        library: state.books.filter( book => book.name.includes(state.filterBooks))
+        library: state.addBooks.filter( book => book.name.includes(state.filterBooks))
     }
 }
 

@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
 
-import books from './books';
+import addBooks from './addBooks';
+import showBooks from './showBooks'
 import filterBooks from './filterBooks';
 
 export default combineReducers({
-    books,
+    addBooks,
+    showBooks,
     filterBooks
 });
