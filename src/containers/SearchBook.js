@@ -1,33 +1,75 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { bindActionCreators } from '../../../../../AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux';
+import { bindActionCreators } from 'redux';
 
 import {searchBook} from '../actions/searchBook';
+import {closeSearching} from '../actions/closeSearching';
 
 class SearchBook extends Component{
-    searchBook(){
-        console.log('i`m searching', this.searchInput.value);
-        this.props.onSearchBook(this.searchInput.value);
+    constructor(props){
+        super(props);
+        this.searchBook = this.searchBook.bind(this);
+        this.closeSearching = this.closeSearching.bind(this);
+    }
 
-        this.searchInput.value = '';
+    searchBook(){
+        const searchValue = this.searchInput.value;
+        
+        // Checking if Search Input tag is filled with value
+        if(searchValue){
+            // If true => searching for needed book
+            this.props.onSearchBook(this.searchInput.value);
+        }
+        else {
+            // Not allowing to search
+            alert('You are looking for nothing')
+        }
+    }
+
+    closeSearching(){
+        // Returning whole library
+        this.props.onCloseSearching('');
     }
 
     render(){
-        return(
-            <div className="search-root">
-                <input type="text" ref={(input) => {this.searchInput = input}} placeholder="Search..."
-                className="input-field" />
+        if(!this.props.searchValue.isSearching){
+            return(
+                <div className="search-root">
+                    <input type="text" ref={(input) => {this.searchInput = input}} placeholder="Search..."
+                    className="input-field" />
+    
+                    <br />
+    
+                    <button onClick={this.searchBook} className="search-button">
+                        Search
+                    </button>
+                </div>
+            )
+        }
+        else{
+            return(
+                <div className="close-search-root">
+                    <button onClick={this.closeSearching} className="close-search-button">
+                        Back
+                    </button>
+                </div>
+            )
+        }
+        
+    }
+}
 
-                <br />
-
-                <button onClick={this.searchBook.bind(this)} className="search-button">Search Book</button>
-            </div>
-        )
+function mapStateToProps(state){
+    return{
+        searchValue: state.filterBooks
     }
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({onSearchBook: searchBook}, dispatch);
+    return bindActionCreators({
+                    onSearchBook: searchBook,
+                    onCloseSearching: closeSearching
+            }, dispatch);
 }
 
-export default connect(null, matchDispatchToProps)(SearchBook);
+export default connect(mapStateToProps, matchDispatchToProps)(SearchBook);

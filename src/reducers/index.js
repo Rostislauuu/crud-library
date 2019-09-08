@@ -1,11 +1,15 @@
 import {combineReducers} from 'redux';
 
-import addBooks from './addBooks';
-import showBooks from './showBooks'
+import addBook from './addBook';
+import selectedBook from './selectedBook'
 import filterBooks from './filterBooks';
+import editBook from './editBook';
+import updatedBook from './updatedBook';
 
 export default combineReducers({
-    addBooks,
-    showBooks,
-    filterBooks
+    addBook,
+    selectedBook,
+    filterBooks,
+    editBook, 
+    updatedBook
 });

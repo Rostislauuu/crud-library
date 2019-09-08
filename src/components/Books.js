@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import AddBook from '../containers/AddBook';
 import BookList from '../containers/BookList';
 import SearchBook from '../containers/SearchBook';
-import ShowBook from '../containers/ShowBook';
+import SelectedBook from '../containers/SelectedBook';
 
 class Books extends Component{
     render(){
@@ -22,7 +22,7 @@ class Books extends Component{
 
                 <div className="third-column">
                     <h3 className="third-column-header">Details</h3>
-                    <ShowBook />    
+                    <SelectedBook />    
                 </div>
             </div>
         )

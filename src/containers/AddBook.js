@@ -5,16 +5,21 @@ import { bindActionCreators } from 'redux';
 import {addBook} from '../actions/addBook';
 
 class AddBook extends Component{
+    constructor(props){
+      super(props);
+      this.addBook = this.addBook.bind(this);
+    }
+
+    
     addBook(){
-      
       let bookName = this.bookName.value;
       let bookAuthor = this.bookAuthor.value;
       let bookYear = +this.bookYear.value;   // Converting from String to a Number
 
-        // Checking if all input fields are filled with value + have correct Type
+        // Checking if all input fields are filled with value 
       if(bookName && bookAuthor && bookYear){
 
-        // If condition is true => sending all data to store using onAddBook function
+        // If true => sending all data to store using onAddBook function
         this.props.onAddBook(bookName, bookAuthor, bookYear);
 
         // Clearing all input fields after pressing the button
@@ -23,13 +28,18 @@ class AddBook extends Component{
         this.bookYear.value = '';  
 
       } 
-      // If bookYear is String  
-      // P.S should be a Number
+
+      // Checking if bookYear is a Number
       else if( isNaN(bookYear) ) {
+
+        // If it is not a Number => not allowing to send data to store
         alert('Enter number in `Year` field');
       } 
-      // If some of fields are not filled
+
+      // If some of fields are not filled with value
       else {
+        
+        // Not allowing to send data to store
         alert('All fields should be filled');
       }
     }
@@ -50,7 +60,7 @@ class AddBook extends Component{
                 className="input-field" />
               <br />
               
-              <button onClick={this.addBook.bind(this)} className="add-button">Add Book</button>
+              <button onClick={this.addBook} className="add-button">Add Book</button>
               <br />
             </div>
         )
