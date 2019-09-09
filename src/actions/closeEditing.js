@@ -1,12 +1,12 @@
-const CLOSE_EDIT_LIBRARY = 'CLOSE_EDIT_LIBRARY';
+const CLOSE_EDITING = 'CLOSE_EDITING';
 
-export const closeEditLibrary = () => {
+export const closeEditing = () => {
     const payload = {
         isEditing: false
     }
 
     return{
-        type: CLOSE_EDIT_LIBRARY,
+        type: CLOSE_EDITING,
         payload
     }
 };

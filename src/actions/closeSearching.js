@@ -1,12 +1,12 @@
-const CLOSE_SEARCHING = 'CLOSE_SEARCHING';
+const CLOSE_SEARCHING_RESULT = 'CLOSE_SEARCHING_RESULT';
 
-export const closeSearching = (name) => {
+export const closeSearchingResult = (name) => {
     const payload = {
         value: name,
         isSearching: false
     }
     return{
-        type: CLOSE_SEARCHING, 
+        type: CLOSE_SEARCHING_RESULT, 
         payload
     }
 }

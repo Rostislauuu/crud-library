@@ -20,6 +20,9 @@ export default function books(state = initialState, action){
             }
         case DELETE_BOOK:
             return {
+                // Returning new array without deleted book
+                // If book.id is not equal to book`s id that we want to delete
+                // => send this book to new array that we make
                 book: state.book.filter( (book) => book.id !== action.payload)
             }
         default: 

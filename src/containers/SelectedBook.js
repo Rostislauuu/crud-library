@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import '../App.scss';
 import { bindActionCreators } from 'redux';
 
-import {editBook} from '../actions/editBook';
+import {openEditing} from '../actions/openEditing';
 import {updateBook} from '../actions/updateBook';
 import {updateLibrary} from '../actions/updateLibrary';
-import {closeEditLibrary} from '../actions/closeEditing'
+import {closeEditing} from '../actions/closeEditing'
 import {deleteBook} from '../actions/deleteBook';
 import {hideDetails} from '../actions/hideDetails';
 
@@ -80,11 +80,13 @@ class SelectedBook extends Component {
           }
 
           // Closing Edit component
-          this.props.onCloseEditLibrary();
+          this.props.onCloseEditing();
       }
 
       deleteBook(){
+          // Sending id of the book that we want to DELETE to the store
         this.props.onDeleteBook(this.props.selectedBook.id);
+        // Not showing details of deleted book(it`s empty already)
         this.props.onHideDetails();
       }
 
@@ -156,10 +158,10 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-        onEditBook: editBook,
+        onEditBook: openEditing,
         onUpdateBook: updateBook,
         onUpdateLibrary: updateLibrary,
-        onCloseEditLibrary: closeEditLibrary,
+        onCloseEditing: closeEditing,
         onDeleteBook: deleteBook,
         onHideDetails: hideDetails
     }, dispatch);

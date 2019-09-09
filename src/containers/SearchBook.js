@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import {searchBook} from '../actions/searchBook';
-import {closeSearching} from '../actions/closeSearching';
+import {closeSearchingResult} from '../actions/closeSearching';
 
 class SearchBook extends Component{
     constructor(props){
         super(props);
         this.searchBook = this.searchBook.bind(this);
-        this.closeSearching = this.closeSearching.bind(this);
+        this.closeSearchingResult = this.closeSearchingResult.bind(this);
     }
 
     searchBook(){
@@ -26,9 +26,9 @@ class SearchBook extends Component{
         }
     }
 
-    closeSearching(){
+    closeSearchingResult(){
         // Returning whole library
-        this.props.onCloseSearching('');
+        this.props.onCloseSearchingResult('');
     }
 
     render(){
@@ -49,7 +49,7 @@ class SearchBook extends Component{
         else{
             return(
                 <div className="close-search-root">
-                    <button onClick={this.closeSearching} className="close-search-button">
+                    <button onClick={this.closeSearchingResult} className="close-search-button">
                         Back
                     </button>
                 </div>
@@ -61,14 +61,14 @@ class SearchBook extends Component{
 
 function mapStateToProps(state){
     return{
-        searchValue: state.filterBooks
+        searchValue: state.searchBook
     }
 }
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
                     onSearchBook: searchBook,
-                    onCloseSearching: closeSearching
+                    onCloseSearchingResult: closeSearchingResult
             }, dispatch);
 }
 

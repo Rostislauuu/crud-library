@@ -1,6 +1,6 @@
 const OPEN_EDITING = 'OPEN_EDITING';
 
-export const editBook = () => {
+export const openEditing = () => {
     const payload = {
         isEditing: true
     }
