@@ -7,16 +7,19 @@ import {editBook} from '../actions/editBook';
 import {updateBook} from '../actions/updateBook';
 import {updateLibrary} from '../actions/updateLibrary';
 import {closeEditLibrary} from '../actions/closeEditing'
+import {deleteBook} from '../actions/deleteBook';
+import {hideDetails} from '../actions/hideDetails';
 
-class ShowBook extends Component {
+class SelectedBook extends Component {
     constructor(props){
         super(props);
-        this.onEdit = this.onEdit.bind(this);
+        this.editBook = this.editBook.bind(this);
         this.updateBook = this.updateBook.bind(this);
         this.updateLibrary = this.updateLibrary.bind(this);
+        this.deleteBook = this.deleteBook.bind(this);
     }
 
-    onEdit() {
+    editBook() {
         // Opening Edit component
         this.props.onEditBook();
     }
@@ -80,6 +83,11 @@ class ShowBook extends Component {
           this.props.onCloseEditLibrary();
       }
 
+      deleteBook(){
+        this.props.onDeleteBook(this.props.selectedBook.id);
+        this.props.onHideDetails();
+      }
+
     render(){
         if (!this.props.selectedBook){
                 return(
@@ -103,7 +111,9 @@ class ShowBook extends Component {
                 <p>Year of publishing is:</p>
                 <h4>{this.props.selectedBook.year}</h4>
 
-                <button className="edit-button" onClick={this.onEdit}>Edit</button>
+                <button className="edit-button" onClick={this.editBook}>Edit</button>
+                <br />
+                <button className="delete-button" onClick={this.deleteBook}>Delete</button>
             </div>
             )
         } 
@@ -137,7 +147,7 @@ class ShowBook extends Component {
 
 function mapStateToProps(state) {
     return{
-        library: state.addBook,
+        library: state.books,
         selectedBook: state.selectedBook,
         updatedBook: state.updatedBook,
         isEditing: state.editBook.isEditing
@@ -149,8 +159,10 @@ function matchDispatchToProps(dispatch) {
         onEditBook: editBook,
         onUpdateBook: updateBook,
         onUpdateLibrary: updateLibrary,
-        onCloseEditLibrary: closeEditLibrary
+        onCloseEditLibrary: closeEditLibrary,
+        onDeleteBook: deleteBook,
+        onHideDetails: hideDetails
     }, dispatch);
   }
 
-export default connect(mapStateToProps, matchDispatchToProps)(ShowBook);
+export default connect(mapStateToProps, matchDispatchToProps)(SelectedBook);

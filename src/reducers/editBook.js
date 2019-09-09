@@ -2,12 +2,12 @@ const initialState = {
     isEditing: false
 };
 
-const EDIT_BOOK = 'EDIT_BOOK';
+const OPEN_EDITING = 'OPEN_EDITING';
 const CLOSE_EDIT_LIBRARY = 'CLOSE_EDIT_LIBRARY';
 
-export default function addBooks(state = initialState, action){
+export default function editBook(state = initialState, action){
     switch(action.type){
-        case EDIT_BOOK:
+        case OPEN_EDITING:
             return action.payload
         case CLOSE_EDIT_LIBRARY: 
             return action.payload

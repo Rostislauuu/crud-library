@@ -1,8 +1,8 @@
-const SHOW_BOOK = 'SHOW_BOOK';
+const SHOW_SELECTED_BOOK = 'SHOW_SELECTED_BOOK';
 
 export const showBook = (book) => {
     return{
-        type: SHOW_BOOK, 
+        type: SHOW_SELECTED_BOOK, 
         payload: book
     }
 }

@@ -1,11 +1,14 @@
 const initialState = null;
 
-const SHOW_BOOK = 'SHOW_BOOK';
+const SHOW_SELECTED_BOOK = 'SHOW_SELECTED_BOOK';
+const HIDE_DETAILS = 'HIDE_DETAILS';
 
-export default function showBooks(state = initialState, action){
+export default function selectBook(state = initialState, action){
     switch(action.type){
-        case SHOW_BOOK:
+        case SHOW_SELECTED_BOOK:
             return action.payload
+        case HIDE_DETAILS: 
+            return null
         default: 
             return state
     }

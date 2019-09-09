@@ -1,4 +1,4 @@
-const EDIT_BOOK = 'EDIT_BOOK';
+const OPEN_EDITING = 'OPEN_EDITING';
 
 export const editBook = () => {
     const payload = {
@@ -6,7 +6,7 @@ export const editBook = () => {
     }
 
     return{
-        type: EDIT_BOOK,
+        type: OPEN_EDITING,
         payload
     }
 };
