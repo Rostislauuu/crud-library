@@ -7,97 +7,144 @@ $white: white;
 
 // Whole Page Elements
 * {
+  margin: 0;
   background: $bgColor;
   font-family: Georgia, sans-serif;
 }
 
-h1{
-  color: $aColor;
-  margin-left: 15px;
-  text-transform: uppercase;
+.book-root {
+  width: 100%;
+  height: 597px;
+  display: flex;
 }
 
-.input-field {
-  @include input-field($white, 1px solid gray);
-  @include size(25px, 250px);
-  @include font(15px, 700);
-  border-radius: 2px;
-  margin: 5px 5px 10px 100px;
-  color: $aColor;
+// First Column
 
-  &:focus{
-    outline: 0;
+.first-column {
+  width: 25%;
+  max-width: 1200px;
+
+  h3 {
+    text-transform: uppercase;
+    color: $aColor;
+    text-align: center;
+    margin-top: 15px;
   }
 }
 
-// Book Library
+.add-book {
+  width: 25%;
+  position: absolute;
+  top: 70px;
+  left: 0;
 
-.add-button, .search-button {
-  @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-  @include size(28px, null);
-  @include font(13px, 700);
-  border-radius: 5px;
-  margin-left: 5px;
+  input {
+    margin: 10px 0 10px 25px;
+    @include input-field($white, 1px solid gray);
+    @include size(25px, 250px);
+    @include font(15px, 700);
+    border-radius: 2px;
+    color: $aColor;
 
-  &:focus{
-    outline: 0;
+    &:focus{
+      outline: 0;
+    }
   }
-  
 
-  &:hover {
-    cursor: $selectCursor;
-    @include hover($white, rgb(41, 38, 38), 2px solid white);
-    transition:  background 0.5s linear, color 0.15s linear;
+  button {
+    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+    @include font(13px, 700);
+    @include size(34px, 85px);
+
+    border-radius: 5px;
+    margin: 10px 0 10px 110px;
+
+    &:focus{
+      outline: 0;
+    }
+    
+
+    &:hover {
+      cursor: $selectCursor;
+      @include hover($white, rgb(41, 38, 38), 2px solid white);
+      transition:  background 0.5s linear, color 0.15s linear;
+    }
+  }
+}
+
+.search-root {
+  width: 25%;
+  position: relative;
+  top: 300px; 
+  left: 0;
+
+  input{
+    margin: 10px 0 10px 25px;
+    @include input-field($white, 1px solid gray);
+    @include size(25px, 250px);
+    @include font(15px, 700);
+    border-radius: 2px;
+    color: $aColor;
+
+    &:focus{
+      outline: 0;
+    }
+  }
+
+  button {
+    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+    @include font(13px, 700);
+    @include size(34px, 100px);
+    
+    border-radius: 5px;
+    margin: 10px 0 10px 105px;
+
+    &:focus{
+      outline: 0;
+    }
+
+    &:hover {
+      cursor: $selectCursor;
+      @include hover($white, rgb(41, 38, 38), 2px solid white);
+      transition:  background 0.5s linear, color 0.15s linear;
+    }
+  }
+}
+
+// Second Column
+
+.second-column {
+  width: 45%;
+  max-width: 1200px;
+
+  h3 {
+    text-transform: uppercase;
+    color: $aColor;
+    text-align: center;
+    margin-top: 15px;
   }
 }
 
 .library {
+  width: 550px;
+  max-width: 550px;
+  position: absolute;
+  left: 306px;
+  top: 85px;
+  text-align: center;
+
     ol {
         list-style: none;
-        padding-left: 15px;
     }
 }
 
 .library-book {
   @include font(20px, normal);
-  margin-bottom: 1px;
-  margin-left: 175px;
   color: rgb(236, 66, 66);
-  width: 20%;
-  cursor: $selectCursor;
-  text-align: center;
-
-  &:hover {
-    @include hover($white, rgb(41, 38, 38), 1px solid white);
-    transition:  background 0.5s linear, color 0.2s linear;
-    border-radius: 3px;
-  }
-}
-
-.books-header {
-  text-align: center;
-}
-
-// Playlist
-
-.songs-header {
-  text-align: center;
-}
-
-.playlist {
-  ol {
-    list-style: none;
-    padding-left: 15px;
-  }
-}
-
-.playlist-song {
-  @include font(20px, normal);
-  margin-bottom: 1px;
-  margin-left: 150px;
-  color: rgb(236, 66, 66);
-  width: 20%;
-  text-align: center;
+  width: 400px;
+  margin-bottom: 8px;
+  margin-left: 45px;
+  
   cursor: $selectCursor;
 
   &:hover {
@@ -107,89 +154,160 @@ h1{
   }
 }
 
-.load-button {
-  @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-  @include size(28px, null);
-  @include font(13px, 700);
-  border-radius: 5px;
-  margin-left: 160px;
+// Third Column
 
-  &:focus{
-    outline: 0;
-  }
-
-  &:hover {
-    cursor: $selectCursor;
-    @include hover($white, rgb(41, 38, 38), 2px solid white);
-    transition:  background 0.5s linear, color 0.15s linear;
-  }
+.third-column {
+  width: 30%;
+  max-width: 550px;
 }
 
-// Menu 
-
-.menu-container {
-  border:  2px solid lighten($bgColor, 10);
-  border-radius: 5px;
-  width: 125px;
-  padding: 5px;
+.third-column-header {
+  text-transform: uppercase;
+  margin-top: 15px;
+  color: $aColor;
+  padding-left: 100px;
 }
 
-.menu-root-link-about {
-  margin-top: 7px;
-}
-
-.menu-link {
-  @include link($aColor, bold, none);
-
-  &:hover {
-    color: darken($aColor, 25%); 
-    transition: color 0.3s linear;
-  }
-
-  &:active {
-    color: lighten(rgb(255, 188, 64), 10%);
-    transition: color 0.01s linear;
-  }
-}
-
-// Root 
-
-.root {
-  width: 100%;
-  max-width: 1200px;
-}
-
-.menu-root {
-  margin: 40px 0 0 10px;
-  max-width: 100px;
-
-}
-
-.book-root {
-  display: inline-block;
-  max-width: 600px;
-  margin-left: 150px;
-  margin-top: -120px;
-}
-
-.songs-root {
+.loading {
   position: absolute;
-  top: 50px;
-  display: inline-block;
-  width: 100%;
-  max-width: 400px;
-  margin-left: 150px;
-  margin-top: -72px;
+  top: 85px;
+  left: 940px;
+  color: $aColor;
 }
 
+.selected-book {
+  position: absolute;
+  top: 85px;
+  left: 940px;
+  color: $aColor;
 
+  p {
+    text-align: center;
+    font-style: oblique;
+    color: gray;
+  }
 
+  h4 {
+    color: $aColor;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+  }
 
+  button {
+    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+    @include font(13px, 700);
+    @include size(34px, 85px);
 
+    border-radius: 5px;
+    margin: 20px 0 10px 35px;
 
+    &:focus{
+      outline: 0;
+    }
+    
 
+    &:hover {
+      cursor: $selectCursor;
+      @include hover($white, rgb(41, 38, 38), 2px solid white);
+      transition:  background 0.5s linear, color 0.15s linear;
+    }
+  }
+}
 
+.selected-book-edit {
+  width: 250px;
+  position: absolute;
+  top: 85px;
+  left: 940px;
+  color: $aColor;
 
+  p {
+    font-style: oblique;
+    color: gray;
+  }
 
+  input {
+    margin: 10px 70px 10px 0;
+    @include input-field($white, 1px solid gray);
+    @include size(25px, 200px);
+    @include font(15px, 700);
+    border-radius: 2px;
+    color: $aColor;
 
+    &:focus{
+      outline: 0;
+    }
+  }
 
+  button {
+    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+    @include font(13px, 700);
+    @include size(34px, 85px);
+
+    border-radius: 5px;
+    margin: 20px 0 10px 35px;
+
+    &:focus{
+      outline: 0;
+    }
+    
+
+    &:hover {
+      cursor: $selectCursor;
+      @include hover($white, rgb(41, 38, 38), 2px solid white);
+      transition:  background 0.5s linear, color 0.15s linear;
+    }
+  }
+}
+
+.update-library-button {
+  button {
+    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+    @include font(13px, 700);
+    @include size(34px, 85px);
+
+    border-radius: 5px;
+    margin: 50px 0 10px 55px;
+
+    &:focus{
+      outline: 0;
+    }
+    
+    &:hover {
+      cursor: $selectCursor;
+      @include hover($white, rgb(41, 38, 38), 2px solid white);
+      transition:  background 0.5s linear, color 0.15s linear;
+    }
+  }
+}
+
+.edit {
+  margin: 300px 0 0 100px;
+}
+
+.close-search-root {
+    width: 25%;
+    position: relative;
+    top: 300px; 
+    left: 0;
+  
+    button {
+      @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+      @include font(13px, 700);
+      @include size(34px, 110px);
+      
+      border-radius: 5px;
+      margin: 10px 0 10px 100px;
+  
+      &:focus{
+        outline: 0;
+      }
+  
+      &:hover {
+        cursor: $selectCursor;
+        @include hover($white, rgb(41, 38, 38), 2px solid white);
+        transition:  background 0.5s linear, color 0.15s linear;
+      }
+    }
+}

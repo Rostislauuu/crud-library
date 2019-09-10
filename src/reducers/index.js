@@ -1,11 +1,15 @@
 import {combineReducers} from 'redux';
 
 import books from './books';
-import songs from './songs';
-import filterBooks from './filterBooks';
+import selectedBook from './selectedBook'
+import searchBook from './searchBook';
+import editBook from './editBook';
+import updatedBook from './updatedBook';
 
 export default combineReducers({
     books,
-    songs,
-    filterBooks
+    selectedBook,
+    searchBook,
+    editBook, 
+    updatedBook
 });

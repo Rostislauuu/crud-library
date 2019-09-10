@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import {showElement} from '../actions/showElement';
-import { bindActionCreators } from '../../../../../AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux';
+import {showDetails} from '../actions/showDetails';
 
 import '../App.scss';
 
@@ -12,7 +12,7 @@ class BookList extends Component{
             <div className="library">
                 <ol>
                     {this.props.library.map( (book) => {
-                    return <li onClick={() => this.props.showElement(book)} key={book.id}
+                    return <li onClick={() => this.props.onShowDetails(book)} key={book.id}
                             className="library-book">
                                 {book.name}
                             </li>
@@ -25,12 +25,12 @@ class BookList extends Component{
 
 function mapStateToProps(state) {
     return{
-        library: state.books.filter( book => book.name.includes(state.filterBooks))
+        library: state.books.book.filter( book => book.name.includes(state.searchBook.value))
     }
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({showElement: showElement}, dispatch);
+    return bindActionCreators({onShowDetails: showDetails}, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(BookList);
