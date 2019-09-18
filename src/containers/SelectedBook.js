@@ -13,22 +13,26 @@ import {hideDetails} from '../actions/hideDetails';
 class SelectedBook extends Component {
     constructor(props){
         super(props);
-        this.editBook = this.editBook.bind(this);
-        this.updateBook = this.updateBook.bind(this);
-        this.updateLibrary = this.updateLibrary.bind(this);
-        this.deleteBook = this.deleteBook.bind(this);
+        this.state = {
+          newName: '',
+          newAuthor: '',
+          newYear: ''
+        }
     }
 
-    editBook() {
+    editBook = () => {
         // Opening Edit component
         this.props.onEditBook();
     }
 
-    updateBook(){
-        let newName = this.newName.value;
-        let newAuthor = this.newAuthor.value;
-        let newYear = +this.newYear.value;   // Converting from String to a Number
-        let id = this.props.selectedBook.id;   
+    handleChange = ({target}) => {
+      this.setState({ [target.name]: target.value})
+    }
+
+    updateBook = () => {
+        const {newName, newAuthor} = this.state;
+        const newYear = +this.state.newYear;   // Converting from String to a Number
+        const id = this.props.selectedBook.id;   
   
           // Checking if all input fields are filled with value + have correct Type
         if(newName && newAuthor && newYear){
@@ -37,9 +41,11 @@ class SelectedBook extends Component {
           this.props.onUpdateBook(id, newName, newAuthor, newYear);
   
           // Clearing all input fields after pressing the button
-          this.newName.value = '';
-          this.newAuthor.value = '';
-          this.newYear.value = '';  
+          this.setState({
+            newName: '' ,
+            newAuthor: '' ,
+            newYear: ''
+          })
   
         } 
 
@@ -58,7 +64,7 @@ class SelectedBook extends Component {
         }
       }
 
-      updateLibrary(){
+      updateLibrary = () => {
           // Checking if we updated selectedBook
           if(this.props.selectedBook.id === this.props.updatedBook.id){
 
@@ -83,7 +89,7 @@ class SelectedBook extends Component {
           this.props.onCloseEditing();
       }
 
-      deleteBook(){
+      deleteBook = () => {
           // Sending id of the book that we want to DELETE to the store
         this.props.onDeleteBook(this.props.selectedBook.id);
         // Not showing details of deleted book(it`s empty already)
@@ -124,18 +130,18 @@ class SelectedBook extends Component {
             return(
                 <div className="selected-book-edit">
                 <p>Name is:</p>
-                <input type="text" ref={(input) => {this.newName = input}}
-                placeholder="Name"  />
+                <input type="text" onChange={this.handleChange} placeholder="Name"
+                 value={this.state.newName} name="newName"  />
                 <br />
 
                 <p>Author is:</p>
-                <input type="text" ref={(input) => {this.newAuthor = input}} 
-                placeholder="Author"/>
+                <input type="text" onChange={this.handleChange}  placeholder="Author" 
+                 value={this.state.newAuthor} name="newAuthor"/>
                 <br />
 
                 <p>Year of publishing is:</p>
-                <input type="text" ref={(input) => {this.newYear = input}}
-                placeholder="Year" />
+                <input type="text" onChange={this.handleChange} placeholder="Year"
+                 value={this.state.newYear} name="newYear" />
 
                 <button className="update-book-button" onClick={this.updateBook}>Update Book</button>
                 < br />
