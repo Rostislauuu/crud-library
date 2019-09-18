@@ -7,26 +7,36 @@ import {addBook} from '../actions/addBook';
 class AddBook extends Component{
     constructor(props){
       super(props);
+      this.state = {
+        bookName: '' ,
+        bookAuthor: '' , 
+        bookYear: ''
+      }
+
       this.addBook = this.addBook.bind(this);
+      this.handleChange = this.handleChange.bind(this);
     }
 
+    handleChange = ({target}) => {
+      this.setState({ [target.name]: target.value})
+    }
     
     addBook(){
-      let bookName = this.bookName.value;
-      let bookAuthor = this.bookAuthor.value;
-      let bookYear = +this.bookYear.value;   // Converting from String to a Number
+      const {bookName, bookAuthor} = this.state;
+      const bookYear = +this.state.bookYear; // Converting from String to a Number 
 
         // Checking if all input fields are filled with value 
       if(bookName && bookAuthor && bookYear){
 
         // If true => sending all data to store using onAddBook function
         this.props.onAddBook(bookName, bookAuthor, bookYear);
-
+        
         // Clearing all input fields after pressing the button
-        this.bookName.value = '';
-        this.bookAuthor.value = '';
-        this.bookYear.value = '';  
-
+        this.setState({
+          bookName: '' ,
+          bookAuthor: '' ,
+          bookYear: ''
+        })
       } 
 
       // Checking if bookYear is a Number
@@ -46,22 +56,20 @@ class AddBook extends Component{
 
     render(){
         return(
-            // making global variables from inputs using ref={}
             <div className="add-book">
-              <input type="text" ref={(input) => {this.bookName = input}} placeholder="Name"
-                className="input-field" />
+              <input type="text" onChange={this.handleChange} placeholder="Name"
+                value={this.state.bookName} name="bookName" className="input-field" />
                 <br />
               
-              <input type="text" ref={(input) => {this.bookAuthor = input}} placeholder="Author"
-                className="input-field" />
+              <input type="text" onChange={this.handleChange} placeholder="Author"
+                value={this.state.bookAuthor} name="bookAuthor" className="input-field" />
                 <br />
 
-              <input type="text" ref={(input) => {this.bookYear = input}} placeholder="Year"
-                className="input-field" />
+              <input type="text" onChange={this.handleChange} placeholder="Year"
+                value={this.state.bookYear} name="bookYear" className="input-field" />
               <br />
               
               <button onClick={this.addBook} className="add-button">Add Book</button>
-              <br />
             </div>
         )
     }
