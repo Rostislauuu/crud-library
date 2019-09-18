@@ -6,12 +6,6 @@ import {searchBook} from '../actions/searchBook';
 import {closeSearchingResult} from '../actions/closeSearching';
 
 class SearchBook extends Component{
-    constructor(props){
-        super(props);
-        this.searchBook = this.searchBook.bind(this);
-        this.closeSearchingResult = this.closeSearchingResult.bind(this);
-    }
-
     searchBook = () => {
         const searchValue = this.searchInput.value;
         
