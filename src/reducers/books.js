@@ -1,5 +1,6 @@
 const initialState = {
-    book: []
+    book: [],
+    songs: [],
 };
 const ADD_BOOK = 'ADD_BOOK';
 const UPDATE_LIBRARY = 'UPDATE_LIBRARY';
