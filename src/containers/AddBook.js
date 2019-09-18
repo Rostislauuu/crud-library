@@ -12,16 +12,13 @@ class AddBook extends Component{
         bookAuthor: '' , 
         bookYear: ''
       }
-
-      this.addBook = this.addBook.bind(this);
-      this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange = ({target}) => {
       this.setState({ [target.name]: target.value})
     }
     
-    addBook(){
+    addBook = () => {
       const {bookName, bookAuthor} = this.state;
       const bookYear = +this.state.bookYear; // Converting from String to a Number 
 

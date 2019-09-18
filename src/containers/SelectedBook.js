@@ -18,15 +18,9 @@ class SelectedBook extends Component {
           newAuthor: '',
           newYear: ''
         }
-
-        this.handleChange = this.handleChange.bind(this);
-        this.editBook = this.editBook.bind(this);
-        this.updateBook = this.updateBook.bind(this);
-        this.updateLibrary = this.updateLibrary.bind(this);
-        this.deleteBook = this.deleteBook.bind(this);
     }
 
-    editBook() {
+    editBook = () => {
         // Opening Edit component
         this.props.onEditBook();
     }
@@ -35,7 +29,7 @@ class SelectedBook extends Component {
       this.setState({ [target.name]: target.value})
     }
 
-    updateBook(){
+    updateBook = () => {
         const {newName, newAuthor} = this.state;
         const newYear = +this.state.newYear;   // Converting from String to a Number
         const id = this.props.selectedBook.id;   
@@ -70,7 +64,7 @@ class SelectedBook extends Component {
         }
       }
 
-      updateLibrary(){
+      updateLibrary = () => {
           // Checking if we updated selectedBook
           if(this.props.selectedBook.id === this.props.updatedBook.id){
 
@@ -95,7 +89,7 @@ class SelectedBook extends Component {
           this.props.onCloseEditing();
       }
 
-      deleteBook(){
+      deleteBook = () => {
           // Sending id of the book that we want to DELETE to the store
         this.props.onDeleteBook(this.props.selectedBook.id);
         // Not showing details of deleted book(it`s empty already)

@@ -12,7 +12,7 @@ class SearchBook extends Component{
         this.closeSearchingResult = this.closeSearchingResult.bind(this);
     }
 
-    searchBook(){
+    searchBook = () => {
         const searchValue = this.searchInput.value;
         
         // Checking if Search Input tag is filled with value
@@ -26,7 +26,7 @@ class SearchBook extends Component{
         }
     }
 
-    closeSearchingResult(){
+    closeSearchingResult = () => {
         // Returning whole library
         this.props.onCloseSearchingResult('');
     }
