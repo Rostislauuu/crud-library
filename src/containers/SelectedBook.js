@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 
 import {openEditing} from '../actions/openEditing';
 import {updateBook} from '../actions/updateBook';
-import {updateLibrary} from '../actions/updateLibrary';
 import {closeEditing} from '../actions/closeEditing'
 import {deleteBook} from '../actions/deleteBook';
 import {hideDetails} from '../actions/hideDetails';
@@ -78,9 +77,6 @@ class SelectedBook extends Component {
                       book.author = this.props.updatedBook.newAuthor;
                       book.year = this.props.updatedBook.newYear;
                       book.id = this.props.updatedBook.id;
-
-                      // Updating store
-                      this.props.onUpdateLibrary(book.id, book.name, book.author, book.year);
                     }
             })
           }
@@ -166,7 +162,6 @@ function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         onEditBook: openEditing,
         onUpdateBook: updateBook,
-        onUpdateLibrary: updateLibrary,
         onCloseEditing: closeEditing,
         onDeleteBook: deleteBook,
         onHideDetails: hideDetails

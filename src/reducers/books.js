@@ -1,9 +1,7 @@
 const initialState = {
-    book: [],
-    songs: [],
+    book: []
 };
 const ADD_BOOK = 'ADD_BOOK';
-const UPDATE_LIBRARY = 'UPDATE_LIBRARY';
 const DELETE_BOOK = 'DELETE_BOOK';
 
 export default function books(state = initialState, action){
@@ -15,10 +13,6 @@ export default function books(state = initialState, action){
                     action.payload
                 ]
             } 
-        case UPDATE_LIBRARY: 
-            return {
-                book: state.book
-            }
         case DELETE_BOOK:
             return {
                 // Returning new array without deleted book
