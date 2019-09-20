@@ -12,12 +12,12 @@ class Books extends Component{
                 <div className="first-column">
                     <h3 className="first-column-header">Add book</h3>
                     <AddBook />
-                    <SearchBook />
                 </div>
 
                 <div className="second-column">
                     <h3 className="second-column-header">Library</h3>
                     <BookList />
+                    <SearchBook />
                 </div>
 
                 <div className="third-column">

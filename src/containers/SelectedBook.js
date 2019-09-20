@@ -25,6 +25,7 @@ class SelectedBook extends Component {
     }
 
     handleChange = ({target}) => {
+      // Changing value for any input
       this.setState({ [target.name]: target.value})
     }
 

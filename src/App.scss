@@ -72,45 +72,6 @@ $white: white;
   }
 }
 
-.search-root {
-  width: 25%;
-  position: relative;
-  top: 300px; 
-  left: 0;
-
-  input{
-    margin: 10px 0 10px 25px;
-    @include input-field($white, 1px solid gray);
-    @include size(25px, 250px);
-    @include font(15px, 700);
-    border-radius: 2px;
-    color: $aColor;
-
-    &:focus{
-      outline: 0;
-    }
-  }
-
-  button {
-    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-    @include font(13px, 700);
-    @include size(34px, 100px);
-    
-    border-radius: 5px;
-    margin: 10px 0 10px 105px;
-
-    &:focus{
-      outline: 0;
-    }
-
-    &:hover {
-      cursor: $selectCursor;
-      @include hover($white, rgb(41, 38, 38), 2px solid white);
-      transition:  background 0.5s linear, color 0.15s linear;
-    }
-  }
-}
-
 // Second Column
 
 .second-column {
@@ -130,7 +91,7 @@ $white: white;
   max-width: 550px;
   position: absolute;
   left: 306px;
-  top: 85px;
+  top: 130px;
   text-align: center;
 
     ol {
@@ -153,6 +114,27 @@ $white: white;
     border-radius: 3px;
   }
 }
+
+.search-root {
+  width: 25%;
+  position: absolute;
+  // top: 300px; 
+  // left: 0;
+
+  input{
+    margin: 45px 0 0 180px;
+    @include input-field($white, 1px solid gray);
+    @include size(25px, 250px);
+    @include font(15px, 700);
+    border-radius: 2px;
+    color: $aColor;
+
+    &:focus{
+      outline: 0;
+    }
+  }
+}
+
 
 // Third Column
 
