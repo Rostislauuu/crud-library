@@ -1,11 +1,12 @@
+import * as Types from '../types/index';
+
 const initialState = {
     
 };
-const UPDATE_BOOK = 'UPDATE_BOOK';
 
-export default function addBooks(state = initialState, action){
+export default function updateBook(state = initialState, action){
     switch(action.type){
-        case UPDATE_BOOK:
+        case Types.UPDATE_BOOK:
             return action.payload
         default: 
             return state

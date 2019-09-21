@@ -14,7 +14,7 @@ class BookList extends Component{
                     {this.props.library.map( (book) => {
                     return <li onClick={() => this.props.onShowDetails(book)} key={book.id}
                             className="library-book">
-                                {book.name}
+                                {book.title}
                             </li>
                     })}
                 </ol>
@@ -26,7 +26,7 @@ class BookList extends Component{
 function mapStateToProps(state) {
     return{
         library: state.books.book.filter( book =>
-            book.name.toLowerCase().includes(state.searchBook.value.toLowerCase())  
+            book.title.toLowerCase().includes(state.searchBook.value.toLowerCase())  
         )
     }
 }

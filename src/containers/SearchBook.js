@@ -9,7 +9,7 @@ class SearchBook extends Component{
         return(
             <div className="search-root">
                 <input type="text" onChange={(e) => { this.props.onSearchBook(e.target.value)} } 
-                    placeholder="Search..." className="input-field" />
+                 placeholder="Search..." className="input-field" />
             </div>       
         )        
     }

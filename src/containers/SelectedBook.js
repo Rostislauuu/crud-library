@@ -13,7 +13,7 @@ class SelectedBook extends Component {
     constructor(props){
         super(props);
         this.state = {
-          newName: '',
+          newTitle: '',
           newAuthor: '',
           newYear: ''
         }
@@ -30,19 +30,19 @@ class SelectedBook extends Component {
     }
 
     updateBook = () => {
-        const {newName, newAuthor} = this.state;
+        const {newTitle, newAuthor} = this.state;
         const newYear = +this.state.newYear;   // Converting from String to a Number
         const id = this.props.selectedBook.id;   
   
           // Checking if all input fields are filled with value + have correct Type
-        if(newName && newAuthor && newYear){
+        if(newTitle && newAuthor && newYear){
   
           // If true => sending all data to store
-          this.props.onUpdateBook(id, newName, newAuthor, newYear);
+          this.props.onUpdateBook(id, newTitle, newAuthor, newYear);
   
           // Clearing all input fields after pressing the button
           this.setState({
-            newName: '' ,
+            newTitle: '' ,
             newAuthor: '' ,
             newYear: ''
           })
@@ -74,7 +74,7 @@ class SelectedBook extends Component {
                   if(book.id === this.props.selectedBook.id){
 
                       // Replacing oldData with a newData
-                      book.name = this.props.updatedBook.newName;
+                      book.title = this.props.updatedBook.newTitle;
                       book.author = this.props.updatedBook.newAuthor;
                       book.year = this.props.updatedBook.newYear;
                       book.id = this.props.updatedBook.id;
@@ -105,8 +105,8 @@ class SelectedBook extends Component {
         else if(this.props.selectedBook && !this.props.isEditing){
         return(
             <div className="selected-book">
-                <p>Name is:</p>
-                <h4>{this.props.selectedBook.name}</h4>
+                <p>Title is:</p>
+                <h4>{this.props.selectedBook.title}</h4>
                 <br />
 
                 <p>Author is:</p>
@@ -126,9 +126,9 @@ class SelectedBook extends Component {
         else if(this.props.selectedBook && this.props.isEditing){
             return(
                 <div className="selected-book-edit">
-                <p>Name is:</p>
-                <input type="text" onChange={this.handleChange} placeholder="Name"
-                 value={this.state.newName} name="newName"  />
+                <p>Title is:</p>
+                <input type="text" onChange={this.handleChange} placeholder="Title"
+                 value={this.state.newTitle} name="newTitle"  />
                 <br />
 
                 <p>Author is:</p>

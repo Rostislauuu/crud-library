@@ -1,8 +1,8 @@
-const SHOW_DETAILS = 'SHOW_DETAILS';
+import * as Types from '../types/index';
 
 export const showDetails = (book) => {
     return{
-        type: SHOW_DETAILS, 
+        type: Types.SHOW_DETAILS, 
         payload: book
     }
 }

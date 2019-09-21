@@ -1,10 +1,10 @@
-const DELETE_BOOK = 'DELETE_BOOK';
+import * as Types from '../types/index';
 
 export const deleteBook = (id) => {
     const payload = id;
 
     return{
-        type: DELETE_BOOK, 
+        type: Types.DELETE_BOOK, 
         payload
     }
 };

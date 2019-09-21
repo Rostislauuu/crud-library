@@ -1,15 +1,15 @@
-const ADD_BOOK = 'ADD_BOOK';
+import * as Types from '../types/index'
 
-export const addBook = (name, author, year) => {
+export const addBook = (title, author, year) => {
     const payload = {
         id: Date.now().toString(),
-        name,
+        title,
         author,
         year
     };
 
     return{
-        type: ADD_BOOK, 
+        type: Types.ADD_BOOK, 
         payload
     }
 };

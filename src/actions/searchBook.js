@@ -1,11 +1,11 @@
-const SEARCH_BOOK = 'SEARCH_BOOK';
+import * as Types from '../types/index';
 
-export const searchBook = (name) => {
+export const searchBook = (title) => {
     const payload = {
-        value: name
+        value: title
     }
     return{
-        type: SEARCH_BOOK, 
+        type: Types.SEARCH_BOOK, 
         payload
     }
 }

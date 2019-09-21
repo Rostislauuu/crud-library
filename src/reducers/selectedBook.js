@@ -1,13 +1,12 @@
-const initialState = null;
+import * as Types from '../types/index';
 
-const SHOW_DETAILS = 'SHOW_DETAILS';
-const HIDE_DETAILS = 'HIDE_DETAILS';
+const initialState = null;
 
 export default function selectBook(state = initialState, action){
     switch(action.type){
-        case SHOW_DETAILS:
+        case Types.SHOW_DETAILS:
             return action.payload
-        case HIDE_DETAILS: 
+        case Types.HIDE_DETAILS: 
             return null
         default: 
             return state

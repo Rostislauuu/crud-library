@@ -1,15 +1,15 @@
-const UPDATE_BOOK = 'UPDATE_BOOK';
+import * as Types from '../types/index';
 
-export const updateBook = (id, newName, newAuthor, newYear) => {
+export const updateBook = (id, newTitle, newAuthor, newYear) => {
     const payload = {
         id,
-        newName,
+        newTitle,
         newAuthor,
         newYear
     }
 
     return{
-        type: UPDATE_BOOK,
+        type: Types.UPDATE_BOOK,
         payload
     }
 };

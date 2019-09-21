@@ -1,19 +1,19 @@
+import * as Types from '../types/index';
+
 const initialState = {
     book: []
 };
-const ADD_BOOK = 'ADD_BOOK';
-const DELETE_BOOK = 'DELETE_BOOK';
 
 export default function books(state = initialState, action){
     switch(action.type){
-        case ADD_BOOK:
+        case Types.ADD_BOOK:
             return {
                 book: [
                     ...state.book,
                     action.payload
                 ]
             } 
-        case DELETE_BOOK:
+        case Types.DELETE_BOOK:
             return {
                 // Returning new array without deleted book
                 // If book.id is not equal to book`s id that we want to delete

@@ -8,7 +8,7 @@ class AddBook extends Component{
     constructor(props){
       super(props);
       this.state = {
-        bookName: '' ,
+        bookTitle: '' ,
         bookAuthor: '' , 
         bookYear: ''
       }
@@ -20,18 +20,18 @@ class AddBook extends Component{
     }
     
     addBook = () => {
-      const {bookName, bookAuthor} = this.state;
+      const {bookTitle, bookAuthor} = this.state;
       const bookYear = +this.state.bookYear; // Converting from String to a Number 
 
         // Checking if all input fields are filled with value 
-      if(bookName && bookAuthor && bookYear){
+      if(bookTitle && bookAuthor && bookYear){
 
         // If true => sending all data to store using onAddBook function
-        this.props.onAddBook(bookName, bookAuthor, bookYear);
+        this.props.onAddBook(bookTitle, bookAuthor, bookYear);
         
         // Clearing all input fields after pressing the button
         this.setState({
-          bookName: '' ,
+          bookTitle: '' ,
           bookAuthor: '' ,
           bookYear: ''
         })
@@ -55,8 +55,8 @@ class AddBook extends Component{
     render(){
         return(
             <div className="add-book">
-              <input type="text" onChange={this.handleChange} placeholder="Name"
-                value={this.state.bookName} name="bookName" className="input-field" />
+              <input type="text" onChange={this.handleChange} placeholder="Title"
+                value={this.state.bookTitle} name="bookTitle" className="input-field" />
                 <br />
               
               <input type="text" onChange={this.handleChange} placeholder="Author"

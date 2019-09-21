@@ -1,7 +1,7 @@
-const HIDE_DETAILS = 'HIDE_DETAILS';
+import * as Types from '../types/index';
 
 export const hideDetails = () => {
     return{
-        type: HIDE_DETAILS, 
+        type: Types.HIDE_DETAILS
     }
 }

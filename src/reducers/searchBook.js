@@ -1,4 +1,4 @@
-const SEARCH_BOOK = 'SEARCH_BOOK';
+import * as Types from '../types/index';
 
 const initialState = {
     value: ''
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function searchBook(state = initialState , action){
     switch(action.type){
-        case SEARCH_BOOK: 
+        case Types.SEARCH_BOOK: 
             return action.payload
         default: 
             return state

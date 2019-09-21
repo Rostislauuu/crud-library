@@ -1,4 +1,4 @@
-const OPEN_EDITING = 'OPEN_EDITING';
+import * as Types from '../types/index';
 
 export const openEditing = () => {
     const payload = {
@@ -6,7 +6,7 @@ export const openEditing = () => {
     }
 
     return{
-        type: OPEN_EDITING,
+        type: Types.OPEN_EDITING,
         payload
     }
 };
