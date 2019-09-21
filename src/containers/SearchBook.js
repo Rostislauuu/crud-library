@@ -15,14 +15,8 @@ class SearchBook extends Component{
     }
 }
 
-function mapStateToProps(state){
-    return{
-        searchValue: state.searchBook
-    }
-}
-
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({onSearchBook: searchBook}, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(SearchBook);
+export default connect(null, matchDispatchToProps)(SearchBook);
