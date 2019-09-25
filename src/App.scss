@@ -6,6 +6,7 @@ $selectCursor: pointer;
 $white: white;
 
 // Whole Page Elements
+
 * {
   margin: 0;
   background: $bgColor;
@@ -21,90 +22,132 @@ $white: white;
 // First Column
 
 .first-column {
-  width: 25%;
-  max-width: 1200px;
+    width: 25%;
+    max-width: 1200px;
+}
 
-  h3 {
+.first-column-header {
+    width: 100%;
+    margin-top: 15px;
+
+    text-align: center;
+    
     text-transform: uppercase;
     color: $aColor;
-    text-align: center;
-    margin-top: 15px;
-  }
 }
 
 .add-book {
-  width: 25%;
-  position: absolute;
-  top: 70px;
-  left: 0;
+    display: flex;
 
-  input {
-    margin: 10px 0 10px 25px;
-    @include input-field($white, 1px solid gray);
-    @include size(25px, 250px);
-    @include font(15px, 700);
-    border-radius: 2px;
-    color: $aColor;
+    width: 25%;
+    position: absolute;
+    top: 70px;
 
-    &:focus{
-      outline: 0;
+    align-items: center;
+    flex-direction: column;
+
+    input {
+        @include input-field($white, 1px solid gray);
+        @include size(25px, 75%);
+        @include font(15px, 700);
+
+        border-radius: 2px;
+        color: $aColor;
+      
+        &:focus{
+          outline: 0;
+        }
     }
-  }
 
-  button {
-    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-    @include font(13px, 700);
-    @include size(34px, 85px);
-
-    border-radius: 5px;
-    margin: 10px 0 10px 110px;
-
-    &:focus{
-      outline: 0;
+    button {
+        @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+        @include font(13px, 700);
+        @include size(34px, 40%);
+      
+        border-radius: 5px;
+      
+        &:focus{
+          outline: 0;
+        }
+          
+      
+        &:hover {
+          cursor: $selectCursor;
+          @include hover($white, rgb(41, 38, 38), 2px solid white);
+          transition:  background 0.5s linear, color 0.15s linear;
+        }
     }
-    
-
-    &:hover {
-      cursor: $selectCursor;
-      @include hover($white, rgb(41, 38, 38), 2px solid white);
-      transition:  background 0.5s linear, color 0.15s linear;
-    }
-  }
 }
 
 // Second Column
 
 .second-column {
-  width: 45%;
+  width: 50%;
   max-width: 1200px;
+  display: flex;
+}
 
-  h3 {
-    text-transform: uppercase;
-    color: $aColor;
-    text-align: center;
-    margin-top: 15px;
+.second-column-header {
+  width: 100%;
+  height: 21px;
+  max-width: 642.86px;
+  margin-top: 15px;
+
+  text-align: center;
+    
+  text-transform: uppercase;
+  color: $aColor;
+}
+
+.search-root {
+  display: flex;
+
+  width: 50%;
+  max-width: 642.86px;
+  position: absolute;
+  top: 70px;
+
+  justify-content: center;
+
+  input{
+      @include input-field($white, 1px solid gray);
+      @include size(25px, 50%);
+      @include font(15px, 700);
+
+      border-radius: 2px;
+      color: $aColor;
+    
+      &:focus{
+        outline: 0;
+      }
   }
 }
 
 .library {
-  width: 550px;
-  max-width: 550px;
-  position: absolute;
-  left: 306px;
-  top: 130px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-    ol {
-        list-style: none;
-    }
+  width: 50%;
+  max-width: 642.86px;
+  position: absolute;
+  top: 130px;
+
+  text-align: center;
+  
+  ol {
+    list-style: none;
+    padding-left: 0px;
+  }
 }
 
 .library-book {
   @include font(20px, normal);
   color: rgb(236, 66, 66);
-  width: 400px;
+
+  width: 100%;
+  max-width: 642.86px;
   margin-bottom: 8px;
-  margin-left: 100px;
 
   cursor: $selectCursor;
 
@@ -115,93 +158,93 @@ $white: white;
   }
 }
 
-.search-root {
-  width: 25%;
-  position: absolute;
-  // top: 300px; 
-  // left: 0;
-
-  input{
-    margin: 45px 0 0 180px;
-    @include input-field($white, 1px solid gray);
-    @include size(25px, 250px);
-    @include font(15px, 700);
-    border-radius: 2px;
-    color: $aColor;
-
-    &:focus{
-      outline: 0;
-    }
-  }
-}
-
-
 // Third Column
 
 .third-column {
-  width: 30%;
-  max-width: 550px;
+  width: 25%;
+  max-width: 337.5px;
+  display: flex;
 }
 
 .third-column-header {
-  text-transform: uppercase;
+  width: 100%;
+  height: 21px;
+  max-width: 337.5px;
   margin-top: 15px;
+
+  text-align: center;
+    
+  text-transform: uppercase;
   color: $aColor;
-  padding-left: 100px;
 }
 
 .loading {
+  width: 25%;
+  max-width: 337.5px;
+
   position: absolute;
-  top: 85px;
-  left: 1025px;
+  top: 75px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+
   color: $aColor;
 }
 
 .selected-book {
+  width: 25%;
+  max-width: 337.5px;
+
   position: absolute;
-  top: 85px;
-  left: 1025px;
+  top: 75px;
+  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   color: $aColor;
 
-  p {
-    text-align: center;
-    font-style: oblique;
-    color: gray;
-  }
-
-  h4 {
-    color: $aColor;
-    text-align: center;
-    margin: 10px 0;
-    font-size: 20px;
-  }
-
-  button {
-    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-    @include font(13px, 700);
-    @include size(34px, 85px);
-
-    border-radius: 5px;
-    margin: 20px 0 10px 35px;
-
-    &:focus{
-      outline: 0;
+    p {
+      font-style: oblique;
+      color: gray;
     }
-    
 
-    &:hover {
-      cursor: $selectCursor;
-      @include hover($white, rgb(41, 38, 38), 2px solid white);
-      transition:  background 0.5s linear, color 0.15s linear;
+    h4 {
+      color: $aColor;
+      margin: 10px 0;
+      font-size: 20px;
     }
-  }
+
+    button {
+        @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+        @include font(13px, 700);
+        @include size(34px, 45%);
+
+        border-radius: 5px;
+        margin: 10px 0px;
+
+        &:focus{
+          outline: 0;
+        }
+        
+        &:hover {
+          cursor: $selectCursor;
+          @include hover($white, rgb(41, 38, 38), 2px solid white);
+          transition:  background 0.5s linear, color 0.15s linear;
+        }
+    }
 }
 
 .selected-book-edit {
-  width: 250px;
+  width: 25%;
+  max-width: 337.5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   position: absolute;
-  top: 85px;
-  left: 1025px;
+  top: 75px;
   color: $aColor;
 
   p {
@@ -210,10 +253,12 @@ $white: white;
   }
 
   input {
-    margin: 10px 70px 10px 0;
+    margin-top: 10px;
+
     @include input-field($white, 1px solid gray);
-    @include size(25px, 200px);
+    @include size(25px, 65%);
     @include font(15px, 700);
+
     border-radius: 2px;
     color: $aColor;
 
@@ -223,73 +268,22 @@ $white: white;
   }
 
   button {
-    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-    @include font(13px, 700);
-    @include size(34px, 85px);
-
-    border-radius: 5px;
-    margin: 20px 0 10px 35px;
-
-    &:focus{
-      outline: 0;
-    }
+        @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+        @include font(13px, 700);
+        @include size(34px, 40%);
     
-
-    &:hover {
-      cursor: $selectCursor;
-      @include hover($white, rgb(41, 38, 38), 2px solid white);
-      transition:  background 0.5s linear, color 0.15s linear;
-    }
-  }
-}
-
-.update-library-button {
-  button {
-    @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-    @include font(13px, 700);
-    @include size(34px, 85px);
-
-    border-radius: 5px;
-    margin: 50px 0 10px 55px;
-
-    &:focus{
-      outline: 0;
-    }
+        border-radius: 5px;
+        margin-top: 30px;
     
-    &:hover {
-      cursor: $selectCursor;
-      @include hover($white, rgb(41, 38, 38), 2px solid white);
-      transition:  background 0.5s linear, color 0.15s linear;
-    }
+        &:focus{
+          outline: 0;
+        }
+        
+    
+        &:hover {
+          cursor: $selectCursor;
+          @include hover($white, rgb(41, 38, 38), 2px solid white);
+          transition:  background 0.5s linear, color 0.15s linear;
+        }
   }
-}
-
-.edit {
-  margin: 300px 0 0 100px;
-}
-
-.close-search-root {
-    width: 25%;
-    position: relative;
-    top: 300px; 
-    left: 0;
-  
-    button {
-      @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-      @include font(13px, 700);
-      @include size(34px, 110px);
-      
-      border-radius: 5px;
-      margin: 10px 0 10px 100px;
-  
-      &:focus{
-        outline: 0;
-      }
-  
-      &:hover {
-        cursor: $selectCursor;
-        @include hover($white, rgb(41, 38, 38), 2px solid white);
-        transition:  background 0.5s linear, color 0.15s linear;
-      }
-    }
 }

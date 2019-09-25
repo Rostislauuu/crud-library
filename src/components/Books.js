@@ -16,8 +16,8 @@ class Books extends Component{
 
                 <div className="second-column">
                     <h3 className="second-column-header">Library</h3>
-                    <BookList />
                     <SearchBook />
+                    <BookList />
                 </div>
 
                 <div className="third-column">

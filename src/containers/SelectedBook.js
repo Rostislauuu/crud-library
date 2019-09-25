@@ -97,7 +97,7 @@ class SelectedBook extends Component {
         if (!this.props.selectedBook){
                 return(
                     <div className="loading">
-                        Book is not selected...
+                        <p>Book is not selected...</p>
                     </div>
                 )
             } 
@@ -113,11 +113,10 @@ class SelectedBook extends Component {
                 <h4>{this.props.selectedBook.author}</h4>
                 <br />
 
-                <p>Year of publishing is:</p>
+                <p>Year is:</p>
                 <h4>{this.props.selectedBook.year}</h4>
 
                 <button className="edit-button" onClick={this.editBook}>Edit</button>
-                <br />
                 <button className="delete-button" onClick={this.deleteBook}>Delete</button>
             </div>
             )
@@ -136,12 +135,11 @@ class SelectedBook extends Component {
                  value={this.state.newAuthor} name="newAuthor"/>
                 <br />
 
-                <p>Year of publishing is:</p>
+                <p>Year is:</p>
                 <input type="text" onChange={this.handleChange} placeholder="Year"
                  value={this.state.newYear} name="newYear" />
 
                 <button className="update-book-button" onClick={this.updateBook}>Update Book</button>
-                < br />
                 <button className="update-library-button" onClick={this.updateLibrary}>Update Library</button>
             </div>
             )

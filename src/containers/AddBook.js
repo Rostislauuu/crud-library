@@ -67,7 +67,7 @@ class AddBook extends Component{
                 value={this.state.bookYear} name="bookYear" className="input-field" />
               <br />
               
-              <button onClick={this.addBook} className="add-button">Add Book</button>
+              <button onClick={this.addBook} className="add-button">Add</button>
             </div>
         )
     }
