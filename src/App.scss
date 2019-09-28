@@ -288,7 +288,7 @@ $white: white;
   }
 }
 
-@media(max-width: 380px){
+@media(max-width: 1030px){
   .add-book {
     button {
         @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
@@ -309,41 +309,31 @@ $white: white;
   }
 
   .selected-book { 
-      button {
-          @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-          @include font(13px, 700);
-          @include size(34px, 65%);
-  
-          border-radius: 5px;
-          margin: 10px 0px;
-  
-          &:focus{
-            outline: 0;
-          }
-          
-          &:hover {
-            @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
-          }
-      }
+    button {
+        @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+        @include font(13px, 700);
+        @include size(34px, 65%);
+
+        border-radius: 5px;
+        margin: 10px 0px;
+
+        &:focus{
+          outline: 0;
+        }
+        
+        &:hover {
+          @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
+        }
+    }
   }
 
   .selected-book-edit {  
     button {
-          @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-          @include font(13px, 700);
-          @include size(auto, 80%);
+        @include size(34px, 60%);
       
-          border-radius: 5px;
-          margin-top: 20px;
-      
-          &:focus{
-            outline: 0;
-          }
-          
-      
-          &:hover {
-            @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
-          }
+        &:hover {
+          @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
+        }
     }
   }
 }
@@ -408,7 +398,7 @@ $white: white;
   }
 }
 
-@media(max-width: 1030px){
+@media(max-width: 380px){
   .add-book {
     button {
         @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
@@ -429,31 +419,41 @@ $white: white;
   }
 
   .selected-book { 
-    button {
-        @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
-        @include font(13px, 700);
-        @include size(34px, 65%);
-
-        border-radius: 5px;
-        margin: 10px 0px;
-
-        &:focus{
-          outline: 0;
-        }
-        
-        &:hover {
-          @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
-        }
-    }
+      button {
+          @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+          @include font(13px, 700);
+          @include size(50px, 80%);
+  
+          border-radius: 5px;
+          margin: 10px 0px;
+  
+          &:focus{
+            outline: 0;
+          }
+          
+          &:hover {
+            @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
+          }
+      }
   }
 
   .selected-book-edit {  
     button {
-        @include size(34px, 60%);
+          @include button($aColor, darken($white, 80), 2px solid lighten($bgColor, 10));  
+          @include font(13px, 700);
+          @include size(auto, 80%);
       
-        &:hover {
-          @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
-        }
+          border-radius: 5px;
+          margin-top: 20px;
+      
+          &:focus{
+            outline: 0;
+          }
+          
+      
+          &:hover {
+            @include hover(darken($white, 80), $aColor, 2px solid lighten($bgColor, 10));
+          }
     }
   }
 }
